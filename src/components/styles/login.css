@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  
+  }
+  
+  body{
+    background: url(papa.png), lightgray 50% / cover no-repeat;
+    font-family: 'Poppins', sans-serif;
+  
+  }
+
+  .imagen{
+    background: url(logo.png), lightgray 50% / cover no-repeat;
+    width: 74px;
+    height: 65px;
+    margin-left: 70px; 
+    
+  }
+  .placeholder{
+    color: rgba(17, 14, 14, 0.50); 
+  }
+
+  h1{
+    color: rgba(15, 148, 207, 0.81);
+    font-size: 70px;
+    font-family: Actor;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  form{
+    border-radius: 17px;
+    /*margin-top: 150px !important;*/
+    width: 24%;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.50) !important;
+  }
+  
+  .btn-primary{
+    width: 100%;
+    border-radius: 7px;
+    background: #377539; 
+    
+  }
+  
+  .form-control{
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.77);
+    box-shadow: none !important;
+    border: none;
+    border-bottom: 1px solid;
+    }
+    
+  h4{
+    font-size: 2rem !important;
+    font-weight: 700;
+  }  
+
+  h5{
+    color: white;
+    font-weight: 1px;
+    margin-left: 800px;
+
+  }
+
+  .form-label{
+    color: #000;
+    font-family: Actor;
+    font-style: normal;
+    line-height: normal;
+    font-weight: 800 !important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    form {
+        width: 100%;
+    }
+
+  }

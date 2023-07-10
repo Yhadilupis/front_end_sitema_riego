@@ -1,0 +1,50 @@
+.contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+.cuadroUno{
+    width: 40%;
+    padding: 50px;
+    
+}
+
+.cuadroDos{
+    width: 40%;
+    padding: 50px;
+}
+
+.cuadroTres{
+    width: 40%;
+    padding: 50px;
+}
+
+h1{
+color: rgba(15, 148, 207, 0.81);
+text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+font-size: 50px;
+font-family: Actor;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+h4{
+    color: green;
+}
+
+.container-tabla{
+    margin-top: 50px;
+    border: 2px solid rgba(92, 95, 92, 0.863);
+}
+
+@media only screen and (max-width: 600px) {
+    .container-tabla {
+        width: auto;
+    }
+
+    .contenedor{
+        width: auto;
+    }
+     
+  }
