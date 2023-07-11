@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+
+  db: 
+    restart: always
+    image: postgres:14.4-alpine3.16
+    ports:
+      - 5432:5432
+    volumes:
+      - db-cs:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=CSDB
+
+
+
+
+  api: 
+    restart: always
+    build: .
+    ports:
+      - 3001:3000
+    volumes:
+      - .:/app_rest
+    depends_on:
+      - db
+
+
+volumes:
+  db-cs:
