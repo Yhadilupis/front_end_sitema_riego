@@ -1,5 +1,5 @@
 import React from 'react'
-import "./styles/graficas.css"
+import "../assets/styles/graficas.css"
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 const data = [
@@ -29,11 +29,11 @@ const GraficaHumedad = () => {
             }}
         >
         <CartesianGrid strokeDasharray="4 1 2" />    
-        <XAxis dataKey="name"/>
+        <XAxis dataKey="e04968c9-ba5a-4547-9277-fcfef33234dd"/>
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar  className="ninguna" dataKey="weight" fill="#6b48ff"/>
+        <Bar  className="ninguna" dataKey="hum" fill="#6b48ff"/>
         <Bar className="ninguna" dataKey="age" fill="#1ee3cf"/>
         </BarChart>
     </ResponsiveContainer>

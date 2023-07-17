@@ -6,7 +6,6 @@
   }
   
   body{
-    background-color: none;
     background: url(papa.png), lightgray 50% / cover no-repeat;
     font-family: 'Poppins', sans-serif;
   
@@ -16,7 +15,7 @@
     background: url(logo.png), lightgray 50% / cover no-repeat;
     width: 74px;
     height: 65px;
-    margin-left: 70px; 
+    margin-left: 50px; 
     
   }
   .placeholder{

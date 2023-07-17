@@ -1,10 +1,11 @@
 import React from 'react';
-import Navbar from './navar';
-import "./styles/graficas.css"
+import Navbar from '../components/navar';
+import "../assets/styles/graficas.css"
 
 const Tablas = () =>{
+
     return(
-        <div>
+        <div className='page_Principal'>
           <Navbar/>
      <div className='container-tabla'>
        <table class="table">

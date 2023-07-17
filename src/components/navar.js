@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Router } from "react-router-dom";
-import "./styles/navar.css"
+import "../assets/styles/navar.css"
 
 function Navbar() {
   const [active, setActive] = useState("nav__menu");

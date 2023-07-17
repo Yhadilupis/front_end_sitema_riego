@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Datos from './components/datos';
-import Tablas from './components/tabla';
-import Login from './components/login';
+import Datos from './pages/HomePage';
+import Tablas from './pages/tabla';
+import Login from './pages/login';
 
 
 
@@ -17,7 +17,6 @@ function App() {
       </Routes>
     </Router>
     </div>
-      
   );
 }
 

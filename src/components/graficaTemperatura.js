@@ -1,5 +1,5 @@
 import React from 'react'
-import "./styles/graficas.css"
+import "../assets/styles/graficas.css"
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 const data = [

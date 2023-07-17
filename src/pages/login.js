@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/login.css";
+import "../assets/styles/login.css"
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container">
       <h1 className="text-center">NexiaSoft</h1>
       <form className="mx-auto" onSubmit={handleSubmit}>
         <h4 className="text-center">Bienvenido</h4>
