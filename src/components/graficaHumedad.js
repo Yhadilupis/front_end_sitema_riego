@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "../assets/styles/graficas.css"
+import humRef from "../pages/HomePage"
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
-const data = [
-    {name: "María", age: 10, weight: 60},
-    {name: 'Karina', age: 25, weight: 70},
-    {name: 'Susana', age: 15, weight: 65},
-    {name: 'Pedro', age: 35, weight: 85},
-    {name: 'Felipe', age: 12, weight: 48},
-    {name: 'Laura', age: 30, weight: 69},
-    {name: 'Adrián', age: 15, weight: 78},
-]
 
 const GraficaHumedad = () => {
+
+    const [data, setData] = useState([]);
+
+  // Función para obtener los datos mediante fetchData
+  const getData = async () => {
+    const jsonData = await humRef();
+    setData(jsonData); // Asignar los datos al estado
+  };
+
+  // Efecto para llamar a getData() al montar el componente y cada vez que data cambie
+    useEffect(() => {
+    getData();
+    const interval = setInterval(getData, 5000); // Llama a getData cada 5 segundos (puedes ajustar el intervalo según tus necesidades)
+
+    return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
+  }, []);
+
   return (
       <div className='cuadroDos'>
            <h4 class="text-center">Humedad ambiental</h4>
@@ -28,13 +37,12 @@ const GraficaHumedad = () => {
                 bottom:5
             }}
         >
-        <CartesianGrid strokeDasharray="4 1 2" />    
-        <XAxis dataKey="e04968c9-ba5a-4547-9277-fcfef33234dd"/>
+       <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="time" />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar  className="ninguna" dataKey="hum" fill="#6b48ff"/>
-        <Bar className="ninguna" dataKey="age" fill="#1ee3cf"/>
+        <Bar type="monotone" dataKey="value" stroke="#6b48ff" />
         </BarChart>
     </ResponsiveContainer>
     </div>
