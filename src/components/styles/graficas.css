@@ -1,3 +1,4 @@
+
 .contenedor{
     display: flex;
     justify-content: center;
@@ -17,6 +18,12 @@
 .cuadroTres{
     width: 40%;
     padding: 50px;
+}
+
+.cuadroCuatro{
+    width: 40%;
+    padding: 50px;
+
 }
 
 h1{

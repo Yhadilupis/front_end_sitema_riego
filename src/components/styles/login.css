@@ -6,6 +6,7 @@
   }
   
   body{
+    background-color: none;
     background: url(papa.png), lightgray 50% / cover no-repeat;
     font-family: 'Poppins', sans-serif;
   
@@ -33,7 +34,6 @@
 
   form{
     border-radius: 17px;
-    /*margin-top: 150px !important;*/
     width: 24%;
     padding: 50px;
     background: rgba(255, 255, 255, 0.50) !important;
@@ -58,13 +58,6 @@
     font-size: 2rem !important;
     font-weight: 700;
   }  
-
-  h5{
-    color: white;
-    font-weight: 1px;
-    margin-left: 800px;
-
-  }
 
   .form-label{
     color: #000;

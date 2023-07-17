@@ -12,10 +12,10 @@ const data = [
     {name: 'Adrián', age: 15, weight: 78},
 ]
 
-const GraficaHumedad = () => {
+const GraficaHumedadTierra = () => {
   return (
-      <div className='cuadroDos'>
-           <h4 class="text-center">Humedad ambiental</h4>
+      <div className='cuadroTres'>
+           <h4 class="text-center">Humedad de la tierra</h4>
     <ResponsiveContainer width="100%" aspect={2}>
         <BarChart 
             data={data}
@@ -33,12 +33,12 @@ const GraficaHumedad = () => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar  className="ninguna" dataKey="weight" fill="#6b48ff"/>
-        <Bar className="ninguna" dataKey="age" fill="#1ee3cf"/>
+        <Bar dataKey="weight" fill="#6b48ff"/>
+        <Bar dataKey="age" fill="#1ee3cf"/>
         </BarChart>
     </ResponsiveContainer>
     </div>
   )
 }
 
-export default GraficaHumedad;
+export default GraficaHumedadTierra;

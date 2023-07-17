@@ -1,7 +1,8 @@
 import React from 'react';
 import Graficas from './graficaTemperatura';
 import GraficaHumedad from './graficaHumedad';
-import GraficaPrecipitacion from './graficaPrecipitacion';
+import GraficaHumedadTierra from './graficaHumedadTierra';
+import GraficaIluminacion from './graficaIluminacion';
 import "./styles/graficas.css"
 import Navbar from './navar';
 
@@ -12,8 +13,11 @@ const Datos = () =>{
      <h1 class="text-center">Grafica de datos ambientales</h1>
        <div class="contenedor">
        <Graficas/> 
-        <GraficaHumedad/>
-       <GraficaPrecipitacion/>
+       <GraficaHumedad/>
+       </div>
+       <div class="contenedor">
+       <GraficaHumedadTierra/>
+       <GraficaIluminacion/>
        </div>
         
         </div>

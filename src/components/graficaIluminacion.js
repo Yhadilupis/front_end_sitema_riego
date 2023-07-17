@@ -12,10 +12,10 @@ const data = [
     {name: 'Adrián', age: 15, weight: 78},
 ]
 
-const GraficaPrecipitacion = () => {
+const GraficaIluminacion = () => {
   return (
-      <div className='cuadroTres'>
-           <h4 class="text-center">Precipitación</h4>
+      <div className='cuadroCuatro'>
+           <h4 class="text-center">Iluminación</h4>
     <ResponsiveContainer width="100%" aspect={2}>
         <BarChart 
             data={data}
@@ -41,4 +41,4 @@ const GraficaPrecipitacion = () => {
   )
 }
 
-export default GraficaPrecipitacion;
+export default GraficaIluminacion;
