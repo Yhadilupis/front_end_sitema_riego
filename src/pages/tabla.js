@@ -24,19 +24,19 @@ const Tablas = () =>{
 
   const sum1 = data.map(item => item.ambientHumidity).reduce((acc, ambientHumidity) => acc + ambientHumidity, 0);
   const average1 = sum1 / data.length;
-  const squaredDifferencesSum1 = data.map(item => item.ambientHumidity).reduce((acc, ambientHumidity) => acc + Math.pow(ambientHumidity - average1, 2), 0);
+  const squaredDifferencesSum1 = data.map(item => item.ambientHumidity).reduce((acc, ambientHumidity) => acc + Math.pow(ambientHumidity - average1, 2));
   const variance1 = squaredDifferencesSum1 / (data.length - 1);
   const standardDeviation1 = Math.sqrt(variance1);
 
   const sum2 = data.map(item => item.soilHumidity).reduce((acc, soilHumidity) => acc + soilHumidity, 0);
   const average2 = sum2 / data.length;
-  const squaredDifferencesSum2 = data.map(item => item.soilHumidity).reduce((acc, soilHumidity) => acc + Math.pow(soilHumidity - average2, 2), 0);
+  const squaredDifferencesSum2 = data.map(item => item.soilHumidity).reduce((acc, soilHumidity) => acc + Math.pow(soilHumidity - average2, 2));
   const variance2 = squaredDifferencesSum2 / (data.length - 1);
   const standardDeviation2 = Math.sqrt(variance2);
 
   const sum3 = data.map(item => item.ambientTemperature).reduce((acc, ambientTemperature) => acc + ambientTemperature, 0);
   const average3 = sum3 / data.length;
-  const squaredDifferencesSum3 = data.map(item => item.ambientTemperature).reduce((acc, ambientTemperature) => acc + Math.pow(ambientTemperature - average3, 2), 0);
+  const squaredDifferencesSum3 = data.map(item => item.ambientTemperature).reduce((acc, ambientTemperature) => acc + Math.pow(ambientTemperature - average3, 2));
   const variance3 = squaredDifferencesSum3 / (data.length - 1);
   const standardDeviation3 = Math.sqrt(variance3);
 
@@ -45,7 +45,7 @@ const Tablas = () =>{
   // Calcula la media dividiendo la suma entre la cantidad de elementos
   const average = sum / data.length;
   // Calcula la suma de los cuadrados de las diferencias entre cada dato y la media
-  const squaredDifferencesSum = data.map(item => item.luminosity).reduce((acc, luminosity) => acc + Math.pow(luminosity - average, 2), 0);
+  const squaredDifferencesSum = data.map(item => item.luminosity).reduce((acc, luminosity) => acc + Math.pow(luminosity - average, 2));
   // Calcula la varianza
   const variance = squaredDifferencesSum / (data.length - 1);
   // Calcula la desviación estándar (raíz cuadrada de la varianza)
