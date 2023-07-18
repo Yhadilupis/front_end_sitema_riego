@@ -25,6 +25,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase
 const database = getDatabase(app);
 
+
 class HomePage extends Component {
   constructor() {
     super();
@@ -32,36 +33,41 @@ class HomePage extends Component {
       hum: 0,
       hum2: 0,
       luz: 0,
-      temperature: 0
+      temperature: 0,
+      dataChanged: false,
     };
   }
 
 
   enviarDatosBackend = () => {
-    const { hum, hum2, luz, temperature } = this.state;
-
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
     
-    var raw = JSON.stringify({
-      "ambientHumidity": hum,
-      "soilHumidity": hum2,
-      "ambientTemperature": temperature,
-      "luminosity": luz
-    });
+    console.log(this.state)
+    // Verificar si todos los valores son diferentes de cero
+   
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      
+      var raw = JSON.stringify({
+        "ambientHumidity": this.state.hum,
+        "soilHumidity": this.state.hum2,
+        "ambientTemperature": this.state.temperature,
+        "luminosity": this.state.luz
+      });
+      
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+      console.log(raw)
+      fetch("https://nexiasoftpi-production.up.railway.app/api/data/create", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
     
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
-    
-    fetch("https://nexiasoftpi-production.up.railway.app/api/data/create", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
   };
+
 
   componentDidMount() {
     // Suscríbete a los cambios en la ruta "sensorData/hum"
@@ -95,7 +101,9 @@ class HomePage extends Component {
         temperature: snapshot.val()
       });
     });
+
   }
+
 
   componentWillUnmount() {
     // Desvincula las suscripciones a cambios para evitar memory leaks.
@@ -110,35 +118,46 @@ class HomePage extends Component {
 
     const temperatureRef = ref(database, 'sensorData/temperature');
     off(temperatureRef);
+
   }
+
+
+
   // Llamamos al método enviarDatosBackend cada vez que los datos se actualicen
   componentDidUpdate(prevProps, prevState) {
-    const { hum, hum2, luz, temperature } = this.state;
+   const {  hum, hum2, luz, temperature } = this.state;
 
     // Comprobar si los datos han cambiado desde la última actualización
-    if (
-      hum !== prevState.hum ||
-      hum2 !== prevState.hum2 ||
-      luz !== prevState.luz ||
-      temperature !== prevState.temperature
+    if ( 
+        (hum !== prevState.hum ||
+        hum2 !== prevState.hum2 ||
+        luz !== prevState.luz ||
+        temperature !== prevState.temperature)
     ) {
-      // Si los datos han cambiado, llamar al método para enviarlos
-      this.enviarDatosBackend();
+      // Si los datos han cambiado o hay cambios en los valores de hum, hum2, luz o temperature
+      // llamar al método para enviar los datos si todos los valores son diferentes de cero
+      if (hum !== 0 && hum2 !== 0 && luz !== 0 && temperature !== 0) {
+        this.enviarDatosBackend();
+      }
+
+      // Resetear el estado dataChanged a false
     }
   }
 
   render() {
+    const { hum, hum2, luz, temperature } = this.state;
     return (
+      
       <div className='page_Principal'>
         <Navbar />
         <h1 class="text-center">Grafica de datos ambientales</h1>
         <div class="contenedor">
-          <Graficas />
-          <GraficaHumedad />
+          <Graficas  ambientTemperature={temperature}/>
+          <GraficaHumedad ambientHumidity={hum}/>
         </div>
         <div class="contenedor">
-          <GraficaHumedadTierra />
-          <GraficaIluminacion />
+          <GraficaHumedadTierra soilHumidity={hum2}/>
+          <GraficaIluminacion luminosity={luz}/>
         </div>
 
        
